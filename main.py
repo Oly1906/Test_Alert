@@ -79,9 +79,6 @@ def classify_error(status_code):
 
     elif status_code == 504:
         return "Gateway Timeout"
-    
-    elif status_code == 530:
-        return "Cloudflare Origin DNS Error / Server Unreachable / Network Issue "
 
     else:
         return "Unknown Server Error"
