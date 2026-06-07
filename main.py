@@ -7,7 +7,7 @@ from datetime import datetime
 
 TARGET_URL = "https://robotxacademy.site"
 
-CHECK_INTERVAL = 300
+CHECK_INTERVAL = 300  # 5 minutes
 
 TIMEOUT_SECONDS = 10
 
@@ -112,7 +112,10 @@ def check_website():
             if previous_state == "DOWN":
 
                 message = f"""
-✅ RESOLVED: {TARGET_URL} is Back Online
+
+✅ RESOLVED: 
+{TARGET_URL} 
+is Back Online
 
 Status Code : {status_code}
 
@@ -139,7 +142,10 @@ No further action required.
                 root_cause = classify_error(status_code)
 
                 message = f"""
-🚨 ALERT: {TARGET_URL} is DOWN
+
+🚨 ALERT: 
+{TARGET_URL} 
+is DOWN
 
 Status Code : {status_code}
 
@@ -153,7 +159,7 @@ Solutions:
 2. Check internet/network
 3. Verify DNS
 4. Contact developer
-5. Check hosting provider status
+5. Check hosting provider
 """
 
                 send_telegram(message)
@@ -171,6 +177,7 @@ Solutions:
             current_time = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
 
             message = f"""
+
 🚨 ALERT: {TARGET_URL} is DOWN
 
 Status Code : TIMEOUT
@@ -181,11 +188,10 @@ Root Cause:
 Server unreachable or network issue
 
 Solutions:
-1. Check server status
+1. Check hosting status
 2. Restart services
 3. Check internet connection
 4. Verify DNS
-5. Check hosting provider status
 """
 
             send_telegram(message)
@@ -195,6 +201,8 @@ Solutions:
 # RUN FOREVER
 
 print("Website Monitor Started...")
+
+send_telegram("🤖 Website Monitor Started Successfully")
 
 while True:
 
