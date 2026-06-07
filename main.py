@@ -31,7 +31,11 @@ def send_telegram(message):
     }
 
     try:
-        response = requests.post(url, data=data)
+        response = requests.post(
+            url, 
+            data=data, 
+            timeout=15
+            )
         print("Telegram Status:", response.status_code)
         print("Telegram Response:", response.text)
 
