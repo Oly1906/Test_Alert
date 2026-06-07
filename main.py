@@ -112,7 +112,7 @@ def check_website():
             if previous_state == "DOWN":
 
                 message = f"""
-✅ RESOLVED: {TARGET_URL} is back ONLINE
+✅ RESOLVED: {TARGET_URL} is Back Online
 
 Status Code : {status_code}
 
